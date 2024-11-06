@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/sasta-vahan/static/css/main.d617b80e.css",
+    "main.js": "/sasta-vahan/static/js/main.15fe0807.js",
+    "static/js/453.b0985041.chunk.js": "/sasta-vahan/static/js/453.b0985041.chunk.js",
+    "static/media/sangli.png": "/sasta-vahan/static/media/sangli.03e7dfe9f468dc2dc7b1.png",
+    "static/media/background_image.png": "/sasta-vahan/static/media/background_image.cf7f2bbb0753e6d50807.png",
+    "static/media/logo.png": "/sasta-vahan/static/media/logo.1c0ee3ff2c74cab9288b.png",
+    "static/media/evaluation_bg.webp": "/sasta-vahan/static/media/evaluation_bg.063b170e4d3f113c78d0.webp",
+    "static/media/nagpur.jpg": "/sasta-vahan/static/media/nagpur.31aa1b75734d6584ce4c.jpg",
+    "static/media/satara.jpg": "/sasta-vahan/static/media/satara.f89b98201d91083ef9e8.jpg",
+    "static/media/kolhapur.jpg": "/sasta-vahan/static/media/kolhapur.38f049f292d7b06250dc.jpg",
+    "static/media/pimpri.webp": "/sasta-vahan/static/media/pimpri.42b880036b7c2b6b0bae.webp",
+    "static/media/logo.svg": "/sasta-vahan/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/sasta-vahan/index.html",
+    "main.d617b80e.css.map": "/sasta-vahan/static/css/main.d617b80e.css.map",
+    "main.15fe0807.js.map": "/sasta-vahan/static/js/main.15fe0807.js.map",
+    "453.b0985041.chunk.js.map": "/sasta-vahan/static/js/453.b0985041.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d617b80e.css",
+    "static/js/main.15fe0807.js"
+  ]
+}
