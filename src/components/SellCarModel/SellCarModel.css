@@ -1,0 +1,45 @@
+.sell-car-model {
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  width: 80%;
+  height: calc(100vh - 160px);
+}
+
+.submit {
+  width: 80%;
+  background: #e31e24 !important;
+}
+
+.view-all {
+  color: #e31e24 !important;
+}
+
+.disabled-button {
+  background: grey !important;
+}
+
+.MuiAppBar-root {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.MuiTabs-indicator {
+  background-color: #e31e24 !important;
+}
+
+.MuiTabs-flexContainer > button {
+  color: grey !important;
+}
+
+.MuiTabs-scroller {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.MuiSvgIcon-root {
+  color: #e31e24 !important;
+}
+
+

@@ -28,6 +28,40 @@
   color: #61dafb;
 }
 
+.dropdown-box {
+  background-color: white !important;
+  margin: 5px !important;
+  border: #f27679 solid !important;
+  border-radius: 20px !important;
+  width: 100% !important;
+  cursor: pointer;
+  height: 30px !important;
+}
+
+.dropdown-box:hover,
+.registration-box:hover {
+  background-color: #fbd0d1 !important;
+}
+
+.location-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: 5px !important;
+  flex-direction: column;
+  align-items: center;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: break-word;
+  border: #f27679 solid !important;
+  border-radius: 20px !important;
+  border-width: 1px !important;
+  font-size: 1rem !important;
+}
+
+.MuiStepLabel-label, .MuiStepLabel-labelContainer {
+  color: white !important;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
