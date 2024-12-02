@@ -1,4 +1,4 @@
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import carService from "../../api/services/carService";
 import { state } from "../../constants/constants";
@@ -39,7 +39,7 @@ const SellCarModel = () => {
       const response = await carService.getCarPrice(carInputs);
       console.log(response);
       if (response?.data?.errors) {
-        alert(response?.data?.errors?.message)
+        alert(response?.data?.errors?.message);
       } else {
         setSellCarResponse(response.data?.data);
         setModelState(state.TAB_MODEL);
@@ -83,16 +83,13 @@ const SellCarModel = () => {
   };
 
   return (
-    <Box className="sell-car-model">
-      {modelState !== state.INPUT_MODEL && (
-        <IconButton
-          onClick={() => setModelState(state.INPUT_MODEL)}
-          aria-label="close"
-        >
-          <CloseIcon />
-        </IconButton>
-      )}
-      {selectModel(modelState)}
+    <Box>
+      <Typography variant="h3" color={"white"} width={"90%"}padding={'2px 0 0 40px'} display={'flex'}>
+        Sell your car online
+      </Typography>
+      <Box className="sell-car-model">
+        {selectModel(modelState)}
+      </Box>
     </Box>
   );
 };

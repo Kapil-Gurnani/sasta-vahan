@@ -10,19 +10,31 @@ function AppointmentComponent() {
 
   const handleBookAppointment = () => {
     if (selectedDateTime) {
-      alert(`Appointment booked for ${selectedDateTime.format('YYYY-MM-DD HH:mm')}`);
+      alert(
+        `Appointment booked for ${selectedDateTime.format("YYYY-MM-DD HH:mm")}`
+      );
     } else {
       alert("Please select a date and time first.");
     }
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center', marginTop:'20px' }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        gap: 2,
+        alignItems: "center",
+        marginTop: "20px",
+      }}
+    >
       {/* <h2>Book an Appointment</h2> */}
-      
+
       {/* DateTime Picker */}
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
+          className="appointment"
           label="Select Date & Time"
           value={selectedDateTime}
           onChange={(newValue) => setSelectedDateTime(newValue)}
@@ -31,10 +43,16 @@ function AppointmentComponent() {
       </LocalizationProvider>
 
       {/* Book Appointment Button */}
-      <Button className="submit"
+      <Button
+        className="submit"
         variant="contained"
-        style={{width: '50%', marginTop: '10px', marginBottom: '20px'}}
-        onClick={handleBookAppointment}>
+        style={{
+          width: "50%",
+          height: "56px",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
+        }}
+        onClick={handleBookAppointment}
+      >
         Book Appointment
       </Button>
     </Box>

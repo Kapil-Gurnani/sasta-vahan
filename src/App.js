@@ -5,16 +5,19 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "./pages/DashboardLayout";
 import EvaluationModel from "./components/SellCarModel/EvaluationModel/EvaluationModel";
 import "./App.css";
+import Header from "./components/TopBar/Header";
+import CarDetails from "./components/CarDetails/CarDetails";
 
 function App() {
   return (
     <div className="App">
-      <AppBar />
-      <Router>
+      {/* <AppBar /> */}
+      <Header />
+      <Router basename="/sasta-vahan">
         <Routes>
           <Route path="/" element={<SellCar />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/evaluation" element={<EvaluationModel />} />
+          <Route path="/evaluation" element={<CarDetails />} />
         </Routes>
       </Router>
     </div>

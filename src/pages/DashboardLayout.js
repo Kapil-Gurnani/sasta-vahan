@@ -14,7 +14,8 @@ import OTPModel from "../components/SellCarModel/OTPModel/OTPModel";
 import { useLocation } from "react-router-dom";
 import Variant from "../components/Variant/Variant";
 import { getPrice } from "../helpers/getPrice";
-import background from "./../assets/images/evaluation_bg.webp";
+import background from "./../assets/images/evaluation_bg.jpg";
+import background2 from "./../assets/images/bg.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SerialNo from "../components/SerialNo/SerialNo";
 
@@ -94,10 +95,10 @@ function Dashboard() {
     <Box
       sx={{ width: "100%" }}
       style={{
-        backgroundImage: `url(${background})`, // Replace with your image path
+        backgroundImage: `url(${background2})`, // Replace with your image path
         backgroundSize: "cover",
         backgroundPosition: "center",
-        minHeight: "calc(100vh - 116px)",
+        minHeight: "calc(100vh - 110px)",
         height: "100%", // Adjust height as necessary
         width: "100%",
         color: "white",

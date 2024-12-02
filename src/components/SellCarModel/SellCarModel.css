@@ -1,10 +1,10 @@
 .sell-car-model {
   background-color: white;
   border-radius: 20px;
-  margin: 20px;
-  padding: 20px;
+  margin: 0 20px;
+  padding: 10px 20px;
   width: 80%;
-  height: calc(100vh - 160px);
+  /* height: calc(100vh - 160px); */
 }
 
 .submit {

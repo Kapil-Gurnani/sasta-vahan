@@ -25,16 +25,46 @@ const Location = ({
   onComplete,
 }) => {
   const locations = [
-    { city: "Pune", icon: Pune },
-    { city: "Mumbai", icon: Mumbai },
+    { city: "Ahmednagar" },
+    { city: "Akola" },
+    { city: "Amravati" },
+    { city: "Aurangabad" },
+    { city: "Beed" },
+    { city: "Bhandara" },
+    { city: "Bhivandi" },
+    { city: "Buldhana" },
+    { city: "Chandrapur" },
+    { city: "Chhatrapati Shahuji Maharaj Nagar (Kolhapur)" },
+    { city: "Dhule" },
+    { city: "Gondia" },
+    { city: "Hingoli" },
+    { city: "Jalgaon" },
+    { city: "Jalna" },
     { city: "Kolhapur", icon: Kolhapur },
-    { city: "Pimpri-Chinchwad", icon: Pimpri },
-    { city: "Sangli", icon: Sangli },
-    { city: "Nashik", icon: Sangli },
-    { city: "Chhatrapati Sambhajinagar", icon: Sangli },
+    { city: "Latur" },
+    { city: "Mumbai", icon: Mumbai },
+    { city: "Mumbai Suburban" },
     { city: "Nagpur", icon: Nagpur },
-    { city: "Navi Mumbai", icon: Mumbai },
+    { city: "Nanded" },
+    { city: "Nandurbar" },
+    { city: "Nashik", icon: Sangli }, // Using Sangli as the icon, as mentioned.
+    { city: "Osmanabad" },
+    { city: "Palghar" },
+    { city: "Parbhani" },
+    { city: "Pune", icon: Pune },
+    { city: "Raigad" },
+    { city: "Ratnagiri" },
+    { city: "Sangli", icon: Sangli },
     { city: "Satara", icon: Satara },
+    { city: "Sindhudurg" },
+    { city: "Solapur" },
+    { city: "Thane" },
+    { city: "Wardha" },
+    { city: "Washim" },
+    { city: "Yavatmal" },
+    { city: "Pimpri-Chinchwad", icon: Pimpri },
+    { city: "Chhatrapati Sambhajinagar", icon: Sangli },
+    { city: "Navi Mumbai", icon: Mumbai },
   ];
 
   return (
@@ -77,36 +107,39 @@ const Location = ({
           margin: "15px 0",
         }}
       >
-        {locations.map((location, index) => (
-          <Grid2
-            key={index}
-            xs={5} // Ensures three boxes per row
-            style={{
-              width: "130px", // Fixed width for each grid box
-              height: "130px", // Fixed height for each grid box
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              margin: "2px",
-            }}
-          >
-            <IconButton
-              className="location-box"
-              name="location"
-              onClick={(e) =>
-                onComplete({
-                  target: {
-                    name: "location",
-                    value: e.target.innerText,
-                  },
-                })
-              }
+        {locations
+          .filter((location) => location?.icon)
+          .map((location, index) => (
+            <Grid2
+              key={index}
+              item
+              xs={2} // Ensures three boxes per row
+              style={{
+                width: "130px", // Fixed width for each grid box
+                height: "120px", // Fixed height for each grid box
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "3px",
+              }}
             >
-              <img src={location?.icon} alt="icon" width="24" height="24" />
-              {location?.city}
-            </IconButton>
-          </Grid2>
-        ))}
+              <IconButton
+                className="location-box"
+                name="location"
+                onClick={(e) =>
+                  onComplete({
+                    target: {
+                      name: "location",
+                      value: e.target.innerText,
+                    },
+                  })
+                }
+              >
+                <img src={location?.icon} alt="icon" width="40" height="40" />
+                {location?.city}
+              </IconButton>
+            </Grid2>
+          ))}
       </Grid2>
     </div>
   );

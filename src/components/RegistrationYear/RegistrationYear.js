@@ -9,7 +9,7 @@ import {
 
 const RegistrationYear = ({ selectedYear, handleYearChange, onComplete }) => {
   // Create an array of years from 2012 to 2024
-  const years = Array.from({ length: 13 }, (v, k) => k + 2012);
+  const years = Array.from({ length: 15 }, (v, k) => k + 2010);
 
   return (
     <div
@@ -32,7 +32,7 @@ const RegistrationYear = ({ selectedYear, handleYearChange, onComplete }) => {
           label="Registration Year"
           name="registration-year"
         >
-          {years.map((year) => (
+          {Array.from({ length: 20 }, (v, k) => k + 2005).map((year) => (
             <MenuItem key={year} value={year}>
               {year}
             </MenuItem>
@@ -44,7 +44,7 @@ const RegistrationYear = ({ selectedYear, handleYearChange, onComplete }) => {
         spacing={2}
         style={{
           display: "flex",
-          justifyContent: "flex-start",
+          justifyContent: "center",
           color: "black",
           margin: "15px 0",
         }}
@@ -53,9 +53,10 @@ const RegistrationYear = ({ selectedYear, handleYearChange, onComplete }) => {
           <Grid2
             key={index}
             xs={5}
+            item
             style={{
               width: "130px", // Fixed width for each grid box
-              height: "130px", // Fixed height for each grid box
+              height: "90px", // Fixed height for each grid box
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -78,6 +79,7 @@ const RegistrationYear = ({ selectedYear, handleYearChange, onComplete }) => {
                 display: "flex",
                 justifyContent: "center",
                 cursor: "pointer",
+                fontWeight: "bold",
               }}
             >
               {year}

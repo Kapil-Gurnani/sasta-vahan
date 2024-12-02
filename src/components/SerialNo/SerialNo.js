@@ -1,4 +1,15 @@
-import { Box, Button, Grid2, IconButton, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControl,
+  Grid2,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import EvStationIcon from "@mui/icons-material/EvStation";
 import { useState } from "react";
@@ -19,19 +30,39 @@ const SerialNo = ({ onComplete }) => {
         borderRadius: "20px",
       }}
     >
-      <TextField
-        label="Serial No."
+      <Grid2
+        key={3}
+        xs={12} // Ensures three boxes per row
+      >
+        <Typography variant="h4" color={"black"}>
+          Select the ownership history of your car
+        </Typography>
+      </Grid2>
+      <FormControl
         variant="outlined"
-        // value={otp}
-        InputLabelProps={{
-          style: { color: "#f27679" }, // Change to your desired color
-        }}
-        value={serialNo}
-        onChange={(e) => setSerialNo(e.target.value)}
-        placeholder="Enter Serial No."
-        fullWidth
-        sx={{ maxWidth: "300px" }}
-      />
+        style={{ width: "100%", margin: "10px 0" }}
+      >
+        <InputLabel id="year-select-label">Ownerhip History</InputLabel>
+        <Select
+          labelId="year-select-label"
+          // value={selectedYear?.["registration-year"]}
+          onChange={(e) => setSerialNo(e.target.value)}
+          label="Serial No."
+          name="serialNo"
+        >
+          {[
+            "1st Owner",
+            "2nd Owner",
+            "3rd Owner",
+            "4th Owner",
+            "Beyond 4th Owner",
+          ].map((year) => (
+            <MenuItem key={year} value={year}>
+              {year}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
       <Button
         variant="contained"
         className={`submit`}
