@@ -17,7 +17,6 @@ const EvaluationModel = () => {
   const location = useLocation();
   const [priceIndex, setPriceIndex] = useState(1);
   const { state } = location;
-
   const details = [
     { label: "Vehicle Number", value: state?.vehicleNum, icon: <CarIcon /> },
     { label: "Make", value: state?.make, icon: <BuildIcon /> },
@@ -174,7 +173,7 @@ const EvaluationModel = () => {
               ))}
             </Box>
           </Paper>
-          <AppointmentComponent />
+          <AppointmentComponent state={state} />
         </Box>
       </Box>
     </Box>

@@ -3,9 +3,10 @@ import { Button, TextField, Box } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import carService from "../../api/services/carService";
 // import dayjs from "dayjs";
 
-function AppointmentComponent() {
+const AppointmentComponent = ({state}) => {
   const [selectedDateTime, setSelectedDateTime] = useState(null);
 
   const handleBookAppointment = () => {
@@ -13,6 +14,7 @@ function AppointmentComponent() {
       alert(
         `Appointment booked for ${selectedDateTime.format("YYYY-MM-DD HH:mm")}`
       );
+      carService.bookingAppointment({...state,bookingTime: selectedDateTime.format("YYYY-MM-DD HH:mm")})
     } else {
       alert("Please select a date and time first.");
     }

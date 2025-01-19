@@ -246,7 +246,7 @@ const CarDetails = () => {
           ))}
         </Grid>
         <Divider width="100%" style={{ marginTop: "20px" }} />
-        <AppointmentComponent />
+        <AppointmentComponent state={state} />
       </Card>
     </Box>
   );

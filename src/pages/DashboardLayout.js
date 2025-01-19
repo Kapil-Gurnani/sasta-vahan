@@ -27,18 +27,17 @@ function Dashboard() {
     name: state?.vehicleNum,
   });
 
+
   // Steps for the Stepper component
   const steps = [
     "Location",
     "Registration year",
     "Variant",
     "Serial No.",
-    "Mobile Verification",
   ];
 
   // Function to handle step completion
   const handleNext = (e) => {
-    console.log(e);
     setCardetails((prevValue) => {
       return {
         ...prevValue,
@@ -68,7 +67,10 @@ function Dashboard() {
       case 2:
         return <Variant onComplete={handleNext} />;
       case 3:
-        return <SerialNo onComplete={handleNext} />;
+        return <SerialNo onComplete={handleNext} state={{
+          ...state,
+          ...carDetails,
+        }} />;
       case 4:
         return (
           <OTPModel

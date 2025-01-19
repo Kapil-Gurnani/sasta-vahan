@@ -4,11 +4,11 @@ import axios from "axios";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
 import { getPrice } from "../../../helpers/getPrice";
+import carService from "../../../api/services/carService";
 
 const axiosInstance = axios.create();
 
 axiosInstance.interceptors.request.use((config) => {
-  console.log(`Generated URL: ${config.url}`, config);
   return config;
 });
 
@@ -26,34 +26,35 @@ const OTPModel = ({ setOTPVerified, onComplete, state }) => {
   const sendOtp = () => {
     if (mobileNumber.length === 10) {
       // Mock sending OTP logic (you can integrate API here)
-      console.log("OTP sent to", mobileNumber);
+      carService.otpGenerate({mobile:parseInt(mobileNumber)})
 
-      const randomSixDigitNumber = Math.floor(100000 + Math.random() * 900000);
-      const url = "https://dtasit.ai/backend/api/http/sms/send"; // Replace with your API endpoint
-      // Create the parameters object
-      const params = {
-        // user: 503332,
-        api_token: "34|2KowVgRVWNaGsGABrV5XKJmBO7qxjolBEqtaEDwn8ed382b2",
-        sender_id: "SSTVHN",
-        recipient: mobileNumber,
-        message: `${`Dear Customer, ${randomSixDigitNumber} is the One Time Password (OTP) for mobile verification. please do not share your OTP with anyone.Team Sasta Vahan`}`,
-        entity_id: "1201161587562398931",
-        dlt_template_id: "1707172326843913423",
-        // rpt: 1,
-        type: "plain",
-      };
-      axiosInstance
-        .get(url, {
-          params,
-          paramsSerializer: (params) => qs.stringify(params, { encode: false }),
-        })
-        .then((response) => {
-          console.log("Data retrieved successfully:", response.data);
-          setOriginalOTP(randomSixDigitNumber);
-        })
-        .catch((error) => {
-          console.error("Error retrieving data:", error);
-        });
+      // const randomSixDigitNumber = Math.floor(100000 + Math.random() * 900000);
+      // console.log("OTP - ", randomSixDigitNumber);
+      // const url = "https://dtasit.ai/backend/api/http/sms/send"; // Replace with your API endpoint
+      // // Create the parameters object
+      // const params = {
+      //   // user: 503332,
+      //   api_token: "34|2KowVgRVWNaGsGABrV5XKJmBO7qxjolBEqtaEDwn8ed382b2",
+      //   sender_id: "SSTVHN",
+      //   recipient: mobileNumber,
+      //   message: `${`Dear Customer, ${randomSixDigitNumber} is the One Time Password (OTP) for mobile verification. please do not share your OTP with anyone.Team Sasta Vahan`}`,
+      //   entity_id: "1201161587562398931",
+      //   dlt_template_id: "1707172326843913423",
+      //   // rpt: 1,
+      //   type: "plain",
+      // };
+      // axiosInstance
+      //   .get(url, {
+      //     params,
+      //     paramsSerializer: (params) => qs.stringify(params, { encode: false }),
+      //   })
+      //   .then((response) => {
+      //     console.log("Data retrieved successfully:", response.data);
+      //     setOriginalOTP(randomSixDigitNumber);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error retrieving data:", error);
+      //   });
       setOtpSent(true);
     } else {
       alert("Please enter a valid 10-digit mobile number.");
@@ -64,20 +65,13 @@ const OTPModel = ({ setOTPVerified, onComplete, state }) => {
     setOtp(e.target.value);
   };
 
-  const verifyOtp = () => {
+  const verifyOtp = async () => {
     // Mock OTP verification logic
-    console.log(otp, originalOTP);
-    if (otp.length === 6 && originalOTP == otp) {
-      console.log("OTP Verified", otp);
-      alert("OTP Verified!");
-      // setOTPVerified(true);
-      onComplete();
-      navigate("/evaluation", {
-        state: {
-          ...state,
-          fairPrice: getPrice(state?.fairPrice),
-          bestPrice: getPrice(state?.bestPrice),
-        },
+    if (otp.length === 6) {
+      onComplete({target:{name: "mobile", value: mobileNumber}});
+      await carService.otpVerify({
+        mobile: parseInt(mobileNumber),
+        otp: parseInt(otp),
       });
     } else {
       alert("Please enter a valid 6-digit OTP.");

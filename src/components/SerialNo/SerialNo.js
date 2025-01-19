@@ -13,10 +13,14 @@ import {
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import EvStationIcon from "@mui/icons-material/EvStation";
 import { useState } from "react";
+import { getPrice } from "../../helpers/getPrice";
+import { useNavigate } from "react-router-dom";
 // import EcoIcon from '@mui/icons-material/Eco';
 
-const SerialNo = ({ onComplete }) => {
+const SerialNo = ({ onComplete, state }) => {
+  const navigate = useNavigate();
   const [serialNo, setSerialNo] = useState("");
+
   return (
     <Grid2
       container
@@ -68,13 +72,22 @@ const SerialNo = ({ onComplete }) => {
         className={`submit`}
         name="serialNo"
         // disabled={mobileNumber.length !== 10}
-        onClick={() =>
+        onClick={() =>{
           onComplete({
             target: {
               name: "serialNo",
               value: serialNo,
             },
           })
+          navigate("/evaluation", {
+              state: {
+                ...state,
+                fairPrice: getPrice(state?.fairPrice),
+                bestPrice: getPrice(state?.bestPrice),
+                serialNo: serialNo,
+              },
+            });
+        }
         }
       >
         Submit

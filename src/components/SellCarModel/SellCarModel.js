@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const SellCarModel = () => {
   const [carInputs, setCarInputs] = useState({});
-  const [modelState, setModelState] = useState(state.INPUT_MODEL);
+  const [modelState, setModelState] = useState(state.OTP_MODEL);
   const [OTPVerified, setOTPVerified] = useState(false);
   const [sellCarResponse, setSellCarResponse] = useState({});
   const navigate = useNavigate();
@@ -20,10 +20,6 @@ const SellCarModel = () => {
   useEffect(() => {
     if (OTPVerified) setModelState(state.EVALUATION_MODEL);
   }, [OTPVerified]);
-
-  useEffect(() => {
-    console.log(carInputs);
-  }, [carInputs]);
 
   const handleInput = (e) => {
     setCarInputs((prevValue) => {
@@ -37,13 +33,12 @@ const SellCarModel = () => {
   const handleSubmit = async () => {
     try {
       const response = await carService.getCarPrice(carInputs);
-      console.log(response);
       if (response?.data?.errors) {
         alert(response?.data?.errors?.message);
       } else {
-        setSellCarResponse(response.data?.data);
+        setSellCarResponse(response.data?.evaluationDetails);
         setModelState(state.TAB_MODEL);
-        navigate("/dashboard", { state: response.data?.data });
+        navigate("/dashboard", { state: {...response?.data?.evaluationDetails, ...carInputs} });
       }
     } catch (err) {}
   };
@@ -65,7 +60,11 @@ const SellCarModel = () => {
       case state.EVALUATION_MODEL:
         return <EvaluationModel vehicle={{ ...vehicleData, ...carInputs }} />;
       case state.OTP_MODEL:
-        return <OTPModel setOTPVerified={setOTPVerified} />;
+        return <OTPModel setOTPVerified={setOTPVerified} onComplete={(e)=>{
+          setModelState(state.INPUT_MODEL)
+          handleInput(e);
+        } 
+        }/>;
       case state.TAB_MODEL:
         return (
           <TabModel
