@@ -4,17 +4,21 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import carService from "../../api/services/carService";
+import useApiRequest from "../../api/useApiRequest"; // Import the custom hook
+
 // import dayjs from "dayjs";
 
 const AppointmentComponent = ({state}) => {
   const [selectedDateTime, setSelectedDateTime] = useState(null);
+  const { apiRequest, loading } = useApiRequest(); // Use the hook
 
-  const handleBookAppointment = () => {
+
+  const handleBookAppointment = async () => {
     if (selectedDateTime) {
       alert(
         `Appointment booked for ${selectedDateTime.format("YYYY-MM-DD HH:mm")}`
       );
-      carService.bookingAppointment({...state,bookingTime: selectedDateTime.format("YYYY-MM-DD HH:mm")})
+      await apiRequest(carService.bookingAppointment,{...state,bookingTime: selectedDateTime.format("YYYY-MM-DD HH:mm")})
     } else {
       alert("Please select a date and time first.");
     }

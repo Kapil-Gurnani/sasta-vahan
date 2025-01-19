@@ -7,8 +7,10 @@ import InputModel from "./InputModel/InputModel";
 import OTPModel from "./OTPModel/OTPModel";
 import CloseIcon from "@mui/icons-material/Close";
 import TabModel from "./TabModel/TabModel";
-import "./SellCarModel.css";
 import { useNavigate } from "react-router-dom";
+import useApiRequest from "../../api/useApiRequest"; // Import the custom hook
+import "./SellCarModel.css";
+
 
 const SellCarModel = () => {
   const [carInputs, setCarInputs] = useState({});
@@ -16,6 +18,7 @@ const SellCarModel = () => {
   const [OTPVerified, setOTPVerified] = useState(false);
   const [sellCarResponse, setSellCarResponse] = useState({});
   const navigate = useNavigate();
+  const { apiRequest, loading } = useApiRequest(); // Use the hook
 
   useEffect(() => {
     if (OTPVerified) setModelState(state.EVALUATION_MODEL);
@@ -31,16 +34,12 @@ const SellCarModel = () => {
   };
 
   const handleSubmit = async () => {
-    try {
-      const response = await carService.getCarPrice(carInputs);
-      if (response?.data?.errors) {
-        alert(response?.data?.errors?.message);
-      } else {
+      const response = await apiRequest(carService.getCarPrice,carInputs);
+      if (response){
         setSellCarResponse(response.data?.evaluationDetails);
         setModelState(state.TAB_MODEL);
         navigate("/dashboard", { state: {...response?.data?.evaluationDetails, ...carInputs} });
       }
-    } catch (err) {}
   };
   const vehicleData = {
     vehicleNum: "DL9CAM9757",
