@@ -9,7 +9,7 @@ const SellCar = () => {
     backgroundImage: `url(${background})`, // Replace with your image path
     backgroundSize: "cover",
     backgroundPosition: "center",
-    minHeight: "calc(100vh - 48px)",
+    minHeight: "calc(100vh - 99px)",
     height: "100%", // Adjust height as necessary
     width: "100%",
   };
@@ -21,8 +21,9 @@ const SellCar = () => {
       style={{
         backgroundImage: `url(${background})`, // Replace with your image path
         backgroundSize: "cover",
+        objectFit: 'cover',
         backgroundPosition: "center",
-        minHeight: "calc(100vh - 130px)",
+        minHeight: "calc(100vh - 40px)",
         height: "100%", // Adjust height as necessary
         width: "100%",
         // color: "white",
@@ -32,8 +33,8 @@ const SellCar = () => {
         // justifyContent: "space-between",
       }}
     >
-      <Grid container spacing={2}>
-        <Grid xs={6}>
+      <Grid container spacing={2} marginTop="90px">
+        <Grid xs={6} sx={{ display: { xs: "none", md: "flex" } }}>
           <Typography
             variant="h2"
             noWrap
@@ -57,7 +58,7 @@ const SellCar = () => {
             {/* Sell your car in minutes */}
           </Typography>
         </Grid>
-        <Grid xs={6} style={{ display: "flex", justifyContent: "center" }}>
+        <Grid xs={12} md={5} style={{ display: "flex", justifyContent: "center" }} sx={{ display: { xs: "flex", md: "none" } }}>
           <SellCarModel />
         </Grid>
       </Grid>

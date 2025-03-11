@@ -5,20 +5,22 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import carService from "../../api/services/carService";
 import useApiRequest from "../../api/useApiRequest"; // Import the custom hook
+import { useNavigate } from "react-router-dom";
 
 // import dayjs from "dayjs";
 
 const AppointmentComponent = ({state}) => {
   const [selectedDateTime, setSelectedDateTime] = useState(null);
   const { apiRequest, loading } = useApiRequest(); // Use the hook
-
+  const navigate = useNavigate();
 
   const handleBookAppointment = async () => {
     if (selectedDateTime) {
+      await apiRequest(carService.bookingAppointment,{...state,bookingTime: selectedDateTime.format("YYYY-MM-DD HH:mm")})
       alert(
         `Appointment booked for ${selectedDateTime.format("YYYY-MM-DD HH:mm")}`
       );
-      await apiRequest(carService.bookingAppointment,{...state,bookingTime: selectedDateTime.format("YYYY-MM-DD HH:mm")})
+      navigate('/');
     } else {
       alert("Please select a date and time first.");
     }

@@ -48,8 +48,8 @@ const CarNumberPlateInput = ({ handleInput }) => {
   return (
     <Box display={"flex"} width={"100%"} alignItems={"center"}>
       <TextField
-        label="Car Number Plate"
-        variant="outlined"
+        placeholder="Car Number Plate"
+        variant="filled"
         className="car-number-plate"
         onChange={debouncedInput}
         name={"vehicle_num"}
@@ -64,10 +64,11 @@ const CarNumberPlateInput = ({ handleInput }) => {
           ),
         }}
       />
-      <FormControl fullWidth variant="outlined">
-        <InputLabel id="kms-select-label">KMs</InputLabel>
+      <FormControl fullWidth variant="filled" sx={{background: 'white'}}>
+        <InputLabel id="kms-select-label" sx={{color: '#b22222 !important'}}>KMs</InputLabel>
         <Select
           labelId="kms-select-label"
+          placeholder="KMs"
           //   value={selectedYear?.["registration-year"]}
           onChange={debouncedInput}
           label="km"

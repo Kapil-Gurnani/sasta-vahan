@@ -1,15 +1,16 @@
 .sell-car-model {
-  background-color: white;
+  /* background-color: white; */
+  background: linear-gradient(135deg, #b22222, #ff6347);
   border-radius: 20px;
-  margin: 0 20px;
-  padding: 10px 20px;
-  width: 80%;
+  margin: 10px 10px 10px 25px;
+  padding: 50px 20px;
   /* height: calc(100vh - 160px); */
 }
 
 .submit {
   width: 80%;
-  background: #e31e24 !important;
+  margin-top: 10px !important;
+  background: #8b0000 !important;
 }
 
 .view-all {
@@ -18,6 +19,7 @@
 
 .disabled-button {
   background: grey !important;
+  color: white !important;
 }
 
 .MuiAppBar-root {

@@ -130,7 +130,7 @@ const Location = ({
                   onComplete({
                     target: {
                       name: "location",
-                      value: e.target.innerText,
+                      value: location?.city,
                     },
                   })
                 }

@@ -61,6 +61,7 @@ const CarDetails = () => {
         minHeight: "80vh",
         padding: "20px",
         color: "white",
+        marginTop:"90px"
       }}
     >
       <Card
@@ -171,6 +172,8 @@ const CarDetails = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              width: "100%",
+              height: "100%"
             }}
           >
             <Typography
@@ -184,8 +187,8 @@ const CarDetails = () => {
                 src={FAIR}
                 alt="jpg-icon"
                 sx={{
-                  width: 180, // Set the width
-                  height: 100, // Set the height
+                  width: "50%", // Set the width
+                  height: "100%", // Set the heigh/t
                   borderRadius: 2, // Adjust border radius for a rectangular shape
                 }}
               />
@@ -195,8 +198,8 @@ const CarDetails = () => {
                 src={EXCELLENT}
                 alt="jpg-icon"
                 sx={{
-                  width: 180, // Set the width
-                  height: 100, // Set the height
+                  width: "50%", // Set the width
+                  height: "100%", // Set the height
                   borderRadius: 2, // Adjust border radius for a rectangular shape
                 }}
               />
@@ -206,8 +209,8 @@ const CarDetails = () => {
                 src={BEST}
                 alt="jpg-icon"
                 sx={{
-                  width: 180, // Set the width
-                  height: 100, // Set the height
+                  width: "50%", // Set the width
+                  height: "100%", // Set the height
                   borderRadius: 2, // Adjust border radius for a rectangular shape
                 }}
               />

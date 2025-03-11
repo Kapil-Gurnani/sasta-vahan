@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Muli", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #465166;
@@ -18,6 +18,6 @@ h4,
 h5,
 h6,
 button {
-  font-family: "Muli", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
 

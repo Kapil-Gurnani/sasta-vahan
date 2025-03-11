@@ -95,12 +95,12 @@ function Dashboard() {
 
   return (
     <Box
-      sx={{ width: "100%" }}
+      sx={{ width: "100%",  marginTop:"90px" }}
       style={{
         backgroundImage: `url(${background2})`, // Replace with your image path
         backgroundSize: "cover",
         backgroundPosition: "center",
-        minHeight: "calc(100vh - 110px)",
+        minHeight: "calc(100vh - 40px)",
         height: "100%", // Adjust height as necessary
         width: "100%",
         color: "white",

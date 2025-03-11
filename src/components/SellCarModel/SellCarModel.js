@@ -82,10 +82,10 @@ const SellCarModel = () => {
 
   return (
     <Box>
-      <Typography variant="h3" color={"white"} width={"90%"}padding={'2px 0 0 40px'} display={'flex'}>
-        Sell your car online
-      </Typography>
       <Box className="sell-car-model">
+      <Typography variant="h3" color={'white'} fontWeight={600} padding={'0 0 30px 0'} display={'flex'}>
+        Sell Your Car Instantly!
+      </Typography>
         {selectModel(modelState)}
       </Box>
     </Box>

@@ -8,7 +8,13 @@
 }
 
 .MuiTable-root {
-  font-family: "Muli" !important;
+  font-family: "Poppins" !important;
+}
+.icon-top-bar {
+  color: black !important;
+}
+.MuiButton-root {
+  font-family: "Poppins" !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -83,4 +89,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.MuiInputAdornment-filled {
+  margin: 17px;
+}
+
+.MuiFilledInput-input {
+  padding: 17px !important;
 }

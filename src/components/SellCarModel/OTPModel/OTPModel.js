@@ -53,7 +53,17 @@ const OTPModel = ({ setOTPVerified, onComplete, state }) => {
   };
 
   return (
-    <Box
+    <> {!otpSent ? (
+      
+      <Typography variant="h5" gutterBottom color={'white'}>
+      Enter your mobile number to get an instant offer.
+    </Typography>
+    ) : (
+      <Typography variant="h5" gutterBottom color={'white'}>
+            Enter your OTP
+          </Typography>
+    )}
+    {/* <Box
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -61,7 +71,7 @@ const OTPModel = ({ setOTPVerified, onComplete, state }) => {
         // justifyContent: "center",
         // height: "calc(100vh - 160px)",
         gap: 2,
-        width: "50%",
+        width: "80%",
         justifySelf: "center",
         backgroundColor: "white",
         padding: "30px",
@@ -69,23 +79,20 @@ const OTPModel = ({ setOTPVerified, onComplete, state }) => {
         borderRadius: "20px",
         color: "black",
       }}
-    >
+    > */}
       {!otpSent ? (
         <>
-          <Typography variant="h5" gutterBottom>
-            Enter your mobile number to see your car valuation
-          </Typography>
           <TextField
-            label="Mobile Number"
+            // label="Mobile Number"
             variant="outlined"
             value={mobileNumber}
-            InputLabelProps={{
-              style: { color: "#f27679" }, // Change to your desired color
-            }}
+            // InputLabelProps={{
+            //   style: { color: "#f27679" }, // Change to your desired color
+            // }}
             onChange={handleMobileChange}
             placeholder="Enter mobile number"
             fullWidth
-            sx={{ maxWidth: "300px" }}
+            sx={{ maxWidth: "300px", borderRadius: '5px',background: 'white',margin: '10px' }}
           />
           <Button
             variant="contained"
@@ -95,25 +102,25 @@ const OTPModel = ({ setOTPVerified, onComplete, state }) => {
             disabled={mobileNumber.length !== 10}
             onClick={sendOtp}
           >
-            Send OTP
+            Get Instant Offer
           </Button>
         </>
       ) : (
         <>
-          <Typography variant="h5" gutterBottom>
+          {/* <Typography variant="h5" gutterBottom>
             Enter OTP
-          </Typography>
+          </Typography> */}
           <TextField
-            label="OTP"
+            // label="OTP"
             variant="outlined"
             value={otp}
-            InputLabelProps={{
-              style: { color: "#f27679" }, // Change to your desired color
-            }}
+            // InputLabelProps={{
+            //   style: { color: "#f27679" }, // Change to your desired color
+            // }}
             onChange={handleOtpChange}
             placeholder="Enter OTP"
             fullWidth
-            sx={{ maxWidth: "300px" }}
+            sx={{ maxWidth: "300px", borderRadius: '5px',background: 'white',margin: '10px' }}
           />
           <Button
             variant="contained"
@@ -125,7 +132,9 @@ const OTPModel = ({ setOTPVerified, onComplete, state }) => {
           </Button>
         </>
       )}
-    </Box>
+      <Typography color={'white'} sx={{opacity:0.8, marginTop: '30px', fontSize: '14px'}}>Trusted by thousands of car sellers nationwide</Typography>
+    {/* </Box> */}
+    </>
   );
 };
 

@@ -43,7 +43,7 @@ const SerialNo = ({ onComplete, state }) => {
         </Typography>
       </Grid2>
       <FormControl
-        variant="outlined"
+        variant="filled"
         style={{ width: "100%", margin: "10px 0" }}
       >
         <InputLabel id="year-select-label">Ownerhip History</InputLabel>

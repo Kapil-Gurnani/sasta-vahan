@@ -81,7 +81,8 @@ const InputModel = ({ handleInput, handleSubmit }) => {
         variant="h5"
         sx={{
           m: 1,
-          fontWeight: "bold",
+          // fontWeight: "bold",
+          color: 'white'
         }}
       >
         Enter your car number
@@ -90,12 +91,12 @@ const InputModel = ({ handleInput, handleSubmit }) => {
       <Button className="submit" variant="contained" onClick={handleSubmit}>
         Get Car Price
       </Button>
-      <Divider sx={{ height: 30 }} />
-      <Typography variant="h5">OR</Typography>
-      <Typography variant="h5">Select your car brand to get started</Typography>
+      <Divider sx={{ height: 1,margin: '30px 0', background: 'grey' }} />
+      <Typography variant="h5" color={'white'}>OR</Typography>
+      <Typography variant="h5" color={'white'}>Select your car brand to get started</Typography>
       <Grid2
         container
-        spacing={2}
+        spacing={1}
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -106,12 +107,15 @@ const InputModel = ({ handleInput, handleSubmit }) => {
           <Grid2
             key={index}
             xs={5} // Ensures three boxes per row
+            md={2}
             style={{
               width: "80px", // Fixed width for each grid box
               height: "80px", // Fixed height for each grid box
               display: "flex",
               // justifyContent: "center",
               // alignItems: "center",
+              background: 'white',
+              borderRadius: '10px',
               margin: "2px",
             }}
           >
@@ -127,6 +131,7 @@ const InputModel = ({ handleInput, handleSubmit }) => {
               //   },
               // })
               // }
+              sx={{margin: '0 !important'}}
             >
               {location?.img ? <img src={location?.img} alt="icon" width="60" height="30" /> : 'View All'}
               {/* {location?.name} */}
